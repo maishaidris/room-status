@@ -1,16 +1,16 @@
 nav {
-  background-color: #07407B;
+  background-color: #07407b;
 }
 
-#nav-title{
+#nav-title {
   color: white;
 }
 
-body{
+body {
   font-family: 'Varela Round', sans-serif !important;
 }
 
-.container{
+.container {
   padding-top: 5.5em;
 }
 
@@ -20,6 +20,6 @@ h1 {
   text-align: center;
 }
 
-#last-row{
+#last-row {
   padding-bottom: 100px;
 }
