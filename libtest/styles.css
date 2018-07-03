@@ -1,18 +1,10 @@
-nav {
-  background-color: #07407b;
-}
+nav {  background-color: #07407b;  }
 
-#nav-title {
-  color: white;
-}
+#nav-title {  color: white;  }
 
-body {
-  font-family: 'Varela Round', sans-serif !important;
-}
+body {  font-family: 'Varela Round', sans-serif !important; }
 
-.container {
-  padding-top: 5.5em;
-}
+.container {  padding-top: 5.5em; }
 
 h1 {
   padding-bottom: 1em;
@@ -20,6 +12,4 @@ h1 {
   text-align: center;
 }
 
-#last-row {
-  padding-bottom: 5.5em;
-}
+#last-row { padding-bottom: 5.5em;  }
