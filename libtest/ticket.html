@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>1w304, Auditorium</title>
     <!-- For the favicon -->
-    <link rel="icon" href="images/UR_logo.png">
+    <link rel="icon" href="images/UR-coat.png">
     <!-- Font being used -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <!-- Responsive to mobile usage, proper rendering, and touch zoom -->
@@ -20,12 +20,54 @@
   <body>
     <nav class="navbar fixed-top navbar-light">
       <a id="nav-title" class="navbar-brand" href="#">
-        <img src="images/UR_logo.png" width="45" height="45" alt="University of Rochester logo" class="d-inline-block align-top"> 1w304, Auditorium</a>
+        <img src="images/UR-coat.png" width="45" height="45" alt="University of Rochester logo" class="d-inline-block align-top"> 1w304, Auditorium</a>
+        <!-- NOTE TO MAISHA: Need to change this to be more general after proper save to Django -->
     </nav>
 
-    <form action="index.html" method="post">
-      <input type="radio" name="issue" value="audio">Audio
-
-    </form>
+    <div class="container">
+      <h1>Report an Issue/Feedback</h1>
+      <form action="thank_you.html" method="post">
+        <fieldset>
+          <legend>Issue Type</legend>
+          <div class="form-group">
+          <input type="radio" name="issue" id="issue_type_audio" value="1">
+          <label for="issue_type_audio">Audio</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="issue" id="issue_type_video_presentation" value="2">
+            <label for="issue_type_video_presentation">Video (Presentation)</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="issue" id="issue_type_computer" value="3">
+            <label for="issue_type_computer">Computer</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="issue" id="issue_type_video_conferencing" value="4">
+            <label for="issue_type_video_conferencing">Audio</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="issue" id="issue_type_system_controls" value="5">
+            <label for="issue_type_system_controls">System Controls</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" name="issue" id="issue_type_feedback_only" value="6">
+            <label for="issue_type_feedback_only">No issue, I want to leave feedback</label>
+          </div>
+        </fieldset>
+        <!-- Need to add more specific issue report here that depends on what was clicked before... maybe can implement this in JavaScript? -->
+        <h2>Optional: Submit your name & email, and we will send you status updates, or follow up with you for more details.</h2>
+        <div class="form-row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" name="" value="">
+          </div>
+        </div>
+        <div class="form-control">
+          <input type="email" class="form-control" placeholder="example@urmc.rochester.edu">
+        </div>
+      </form>
+    </div>
   </body>
 </html>
