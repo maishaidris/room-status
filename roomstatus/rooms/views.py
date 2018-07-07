@@ -9,9 +9,9 @@ def index(request):
     # Generate counts of some of the main objects
     num_rooms = Room.objects.all().count()
     # Generate counts of total number of tickets
-    # num_tickets = Ticket.objects.all().count()
+    num_tickets = Ticket.objects.all().count()
     # Green rooms (status = 'g')
-    num_rooms_green = Rooms.objects.filter(status__exact='g').count()
+    num_rooms_green = Room.objects.filter(status__exact='g').all().count()
 
     # Render the HTML template index.html with the data in the context variable
     return render(
