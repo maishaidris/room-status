@@ -9,13 +9,15 @@
   <li>Green rooms: {{num_rooms_green}}</li>
 </ul>
 
+<h1>Click a room below to see further information, submit a ticket, or provide additional feedback.</h1>
+
 {% for room in rooms %}
 <div class="container">
   <div class="row">
     <div class="col-sm text-center">
       <div class="card">
         {% load static %}
-        <img class="card-img-top" src="{% static "rooms/"|add:room.name|add:".jpg" %} alt="{{room.name}}">
+      <img class="card-img-top" src={% with 'images/'|add:room.name|add:'.jpg' as image_static %} {% static image_static %} {% endwith %}" alt="{{room.name}}">
         <div class="card-body">
           <button type="button" class="btn btn-success">{{room.name}}</button>
         </div>
@@ -23,10 +25,5 @@
     </div>
 
 {% endfor %}
-
-<h1>Click a room below to see further information, submit a ticket, or provide additional feedback.</h1>
-
-
-
 
 {% endblock content %}

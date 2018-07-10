@@ -21,7 +21,7 @@ def index(request):
         request,
         'index.html',
         context={'num_rooms': num_rooms, 'num_tickets': num_tickets,
-                 'num_rooms_green': num_rooms_green, 'rooms': rooms},
+                 'num_rooms_green': num_rooms_green, 'rooms': rooms, },
     )
 
 

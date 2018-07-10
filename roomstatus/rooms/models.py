@@ -19,8 +19,17 @@ class Room(models.Model):
         ('g', 'Green'),
     )
 
+    COLUMN_NUMBER = (
+        ('1', 'First'),
+        ('2', 'Second'),
+        ('3', 'Third'),
+    )
+
     status = models.CharField(max_length=1, choices=ROOM_STATUS,
                               blank=True, default='g', help_text='Status of the room')
+
+    column = models.CharField(max_length=1, choices=COLUMN_NUMBER, blank=False, default='1',
+                              help_text='PLEASE DO NOT CHANGE THIS.  Positioning of the room when in grid view on the dashboard.')
 
     no_new_tickets = models.BooleanField(default=True)
 
