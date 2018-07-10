@@ -1,6 +1,7 @@
 from django.shortcuts import render
 # render function generates HTML files using a template & data
 from .models import Room, Ticket
+from django.views import generic
 
 
 def index(request):
@@ -12,11 +13,21 @@ def index(request):
     num_tickets = Ticket.objects.all().count()
     # Green rooms (status = 'g')
     num_rooms_green = Room.objects.filter(status__exact='g').all().count()
+    # Room Names
+    rooms = Room.objects.all()
 
     # Render the HTML template index.html with the data in the context variable
     return render(
         request,
         'index.html',
         context={'num_rooms': num_rooms, 'num_tickets': num_tickets,
-                 'num_rooms_green': num_rooms_green},
+                 'num_rooms_green': num_rooms_green, 'rooms': rooms},
     )
+
+
+class RoomListView(generic.ListView):
+    model = Room
+
+
+class RoomDetailView(generic.DetailView):
+    model = Room

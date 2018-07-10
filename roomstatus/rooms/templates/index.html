@@ -1,9 +1,6 @@
 {% extends "base_generic.html" %}
 
 {%block content %}
-<h1>Hello!  Testing this works</h1>
-
-<p>So excited to have you here.</p>
 
 <p>Currently, we have this many of everything:</p>
 <ul>
@@ -12,4 +9,24 @@
   <li>Green rooms: {{num_rooms_green}}</li>
 </ul>
 
-{% endblock %}
+{% for room in rooms %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm text-center">
+      <div class="card">
+        {% load static %}
+        <img class="card-img-top" src="{% static "rooms/"|add:room.name|add:".jpg" %} alt="{{room.name}}">
+        <div class="card-body">
+          <button type="button" class="btn btn-success">{{room.name}}</button>
+        </div>
+      </div>
+    </div>
+
+{% endfor %}
+
+<h1>Click a room below to see further information, submit a ticket, or provide additional feedback.</h1>
+
+
+
+
+{% endblock content %}

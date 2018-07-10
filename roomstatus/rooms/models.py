@@ -33,7 +33,7 @@ class Room(models.Model):
         return reverse('room-detail', arg=[str(self.id)])
 
     class Meta:
-        ordering = ['no_new_tickets']
+        ordering = ['name']
 
 
 class Ticket(models.Model):
