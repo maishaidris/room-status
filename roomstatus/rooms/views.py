@@ -23,11 +23,3 @@ def index(request):
         context={'num_rooms': num_rooms, 'num_tickets': num_tickets,
                  'num_rooms_green': num_rooms_green, 'rooms': rooms, },
     )
-
-
-class RoomListView(generic.ListView):
-    model = Room
-
-
-class RoomDetailView(generic.DetailView):
-    model = Room
