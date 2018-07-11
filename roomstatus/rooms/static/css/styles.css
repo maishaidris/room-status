@@ -1,0 +1,26 @@
+nav {  background-color: #07407b;  }
+
+#nav-title {  color: white;  }
+
+body {
+  font-family: 'Varela Round', sans-serif;
+}
+
+.container {  padding-top: 5.5em; }
+
+.card { padding-top: 5.5em; }
+
+h1 {
+  padding-bottom: 1em;
+  padding-top: 1em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#last-row { padding-bottom: 5.5em;  }
+
+.navbar-brand { font-size: 1.75em; }
+
+h2 {
+  font-size: 1.2em;
+}

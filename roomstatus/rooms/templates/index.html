@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{%block content %}
+
+<!-- <h1>Click a room below to see further information, submit a ticket, or provide additional feedback.</h1>  -->
+<!-- does not appear for some reason; appears to be covered by the nav bar...this should be fixed later -->
+
+
+<div class="container">
+  <div class="row">
+    {% for room in rooms %}
+    <div class="col-md-3 text-center">
+      <div class="card">
+        {% load static %}
+      <img class="card-img-top" src={% with 'images/'|add:room.name|add:'.jpg' as image_static %} {% static image_static %} {% endwith %}" alt="{{room.name}}">
+        <div class="card-body">
+          <button type="button" class="btn btn-success">{{room.name}}</button>
+        </div>
+      </div>
+    </div>
+
+{% endfor %}
+
+{% endblock content %}
