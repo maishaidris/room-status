@@ -2,13 +2,17 @@ nav {  background-color: #07407b;  }
 
 #nav-title {  color: white;  }
 
-body {  font-family: 'Varela Round', sans-serif; }
+body {
+  font-family: 'Varela Round', sans-serif;
+}
 
 .container {  padding-top: 5.5em; }
 
+.card { padding-top: 5.5em; }
+
 h1 {
   padding-bottom: 1em;
-  padding-top: 1.25em;
+  padding-top: 1em;
   font-size: 1.5em;
   text-align: center;
 }
