@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import Room, Ticket
 from django.views import generic
 from django.http import HttpResponseRedirect
-from .forms import IssueForm
+# from .forms import IssueForm
 
 
 def get_issue(request):
