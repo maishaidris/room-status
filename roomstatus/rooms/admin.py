@@ -18,3 +18,7 @@ class TicketAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Ticket, TicketAdmin)
+
+admin.site.site_header = "HWH Room Statuses"
+admin.site.site_title = "HWH Room Statuses"
+admin.site.index_title = "Dashboard"

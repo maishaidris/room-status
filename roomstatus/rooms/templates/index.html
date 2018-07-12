@@ -16,7 +16,7 @@
       <img class="card-img-top" src={% with 'images/'|add:room.name|add:'.jpg' as image_static %} {% static image_static %} {% endwith %}" alt="{{room.name}}">
         <div class="card-body">
           <form method="post" action="/{{room.name}}.html">
-          <button type="submit" value="{{room.name}}" class="btn btn-success">{{room.name}}</button></form>
+          <button type="submit" value="{{room.name}}" {% if room.status == 'g' %} class="btn btn-success">{%elif room.status == 'y' %} class="btn btn-warning"> {% elif room.status == 'r' %} class="btn btn-danger">{% endif %}{{room.name}}</button></form>
         </div>
       <!-- </div> -->
     </div>
