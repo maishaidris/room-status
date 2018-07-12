@@ -9,14 +9,15 @@
 <div class="container">
   <div class="row">
     {% for room in rooms %}
-    <div class="col-md-3 text-center">
-      <div class="card">
+    <div class="col-sm-4 text-center">
+      <!-- <div class="card"> -->
+      <!-- temporarily commented out because I think I may like the look of it without cards more -->
         {% load static %}
       <img class="card-img-top" src={% with 'images/'|add:room.name|add:'.jpg' as image_static %} {% static image_static %} {% endwith %}" alt="{{room.name}}">
         <div class="card-body">
           <button type="button" class="btn btn-success">{{room.name}}</button>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
 
 {% endfor %}
