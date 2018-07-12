@@ -2,6 +2,20 @@ from django.shortcuts import render
 # render function generates HTML files using a template & data
 from .models import Room, Ticket
 from django.views import generic
+from django.http import HttpResponseRedirect
+from .forms import IssueForm
+
+
+def get_issue(request):
+    if request.method == 'POST':
+        form = IssueForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/')
+
+    else:
+        form = NameForm()
+
+    return render(request, 'name.html', {'form': form})
 
 
 def index(request):
