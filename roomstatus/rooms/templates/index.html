@@ -17,7 +17,10 @@
         <div class="card-body">
           <form method="post" action="/{{room.name}}.html">
           <button type="submit" value="{{room.name}}" {% if room.status == 'g' %} class="btn btn-success">{%elif room.status == 'y' %} class="btn btn-warning"> {% elif room.status == 'r' %} class="btn btn-danger">{% endif %}{{room.name}}</button></form>
+          <div class="card-body">
+          <p class="card-text"> {{room.details}}</p>
         </div>
+      </div>
       <!-- </div> -->
     </div>
 
