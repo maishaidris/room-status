@@ -26,9 +26,23 @@
       <a id="nav-title" class="navbar-brand" href="{% url 'index' %}">
         {% load static %}
         <img src="{% static 'images/UR-coat.png' %}" width="45" height="45" alt="University of Rochester logo" class="d-inline-block align-top">Room Status Reporting</a>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search for a room...">
-        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+      <form method="post" action="/{{room.name}}.html" class="form-inline">
+        <input class="form-control mr-sm-2" list="room-numbers" type="search" placeholder="Search for a room...">
+        <datalist id="room-numbers">
+          <option value="1w501"></option>
+          <option value="1w502"></option>
+          <option value="1w509"></option>
+          <option value="1w510"></option>
+          <option value="Auditorium"></option>
+          <option value="Jacoby"></option>
+          <option value="2w153"></option>
+          <option value="2w213"></option>
+          <option value="2w216"></option>
+          <option value="3w301"></option>
+          <option value="4w134"></option>
+          <option value="4w301"></option>
+        </datalist>
+        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" list="room-numbers" calue="{{room.name}}">Search</button>
       </form>
     </nav>
     {% endblock %}
