@@ -3,19 +3,11 @@ from django.shortcuts import render
 from .models import Room, Ticket
 from django.views import generic
 from django.http import HttpResponseRedirect
-# from .forms import IssueForm
+from django.http import HttpResponse
 
 
-def get_issue(request):
-    if request.method == 'POST':
-        form = IssueForm(request.POST)
-        if form.is_valid():
-            return HttpResponseRedirect('/thanks/')
-
-    else:
-        form = NameForm()
-
-    return render(request, 'name.html', {'form': form})
+def ticket(request, room_name):
+    return HttpResponse("You're at room number %s." % room_name)
 
 
 def index(request):
