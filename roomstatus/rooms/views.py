@@ -5,6 +5,7 @@ from django.views import generic
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.urls import reverse
+from .forms import Ticket
 
 
 def ticket(request, room_name):
@@ -34,3 +35,14 @@ def index(request):
         context={'num_rooms': num_rooms, 'num_tickets': num_tickets,
                  'num_rooms_green': num_rooms_green, 'rooms': rooms, },
     )
+
+    def get_name(request):
+        if request.method == 'POST':
+            form = Ticket(request.POST)
+            if form.is_valid():
+                return HttpResponseRedirect('/thanks/')
+
+        else:
+            form = Ticket()
+
+        return render(request, 'ticket.html', {'form': form})
