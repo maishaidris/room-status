@@ -13,7 +13,7 @@ body {
 h1 {
   padding-bottom: 1em;
   padding-top: 1em;
-  font-size: 1.5em;
+  font-size: 1.75em;
   text-align: center;
 }
 
@@ -21,6 +21,22 @@ h1 {
 
 .navbar-brand { font-size: 1.75em; }
 
-h2 {
+/* h2 {
   font-size: 1.2em;
+} */
+
+.large-text{
+  font-size: 1.25em;
+}
+
+#green-text {
+  color: green;
+}
+
+#yellow-text {
+  color: gold;
+}
+
+#red-text {
+  color: red;
 }

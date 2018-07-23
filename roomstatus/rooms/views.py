@@ -1,13 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 # render function generates HTML files using a template & data
 from .models import Room, Ticket
 from django.views import generic
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
+from django.urls import reverse
 
 
 def ticket(request, room_name):
-    return HttpResponse("You're at room number %s." % room_name)
+    room_name = get_object_or_404(Room, pk=room_name)
+
+    room = Room.objects.all()
+
+    return render(request, 'ticket.html', context={'room_name': room_name, 'room': room, })
 
 
 def index(request):
