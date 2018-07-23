@@ -27,6 +27,12 @@ h2 {
   padding-bottom: 1em;
 }
 
+h3 {
+  font-size: 1.25em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .large-text{
   font-size: 1.25em;
 }
@@ -41,4 +47,23 @@ h2 {
 
 .red-text {
   color: red;
+}
+
+textarea {
+  resize: none;
+}
+ul {
+  list-style-type: none;
+}
+
+li{
+  padding: 0.25em;
+}
+
+/* input[type=text]{
+  width: 49%;
+} */
+
+input[type=email]{
+  width: 99%;
 }
