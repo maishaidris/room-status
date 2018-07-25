@@ -21,6 +21,8 @@ def ticket(request, room_name):
 
     else:
         form = TicketForm(request.POST)
+
+        # validating and cleaning data
         if form.is_valid():
             type_of_issue = form.cleaned_data['type_of_issue']
             first_name = form.cleaned_data['first_name']
@@ -29,42 +31,25 @@ def ticket(request, room_name):
             feedback_or_further_details = form.cleaned_data['feedback_or_further_details']
             affiliation = form.cleaned_data['affiliation']
 
-            try:
-                send_mail(subject, message, from_email, ['admin@example.com'])
+            template = get_template('ticket.txt')
+            context = {
+                'first_name': first_name,
+                'last_name': last_name,
+                'email_address': email_address,
+                'type_of_issue': type_of_issue,
+                'feedback_or_further_details': feedback_or_further_details,
+                'affiliation': affiliation,
+            }
+            content = template.render(context)
 
-            except BadHeaderError:
-                return HttpResponse('Invalid header found')
-
-            return redirect('index')
-
-            # template = get_template('ticket.txt')
-            # context = {
-            #     'first_name': first_name,
-            #     'last_name': last_name,
-            #     'email_address': email_address,
-            #     'type_of_issue': type_of_issue,
-            #     'feedback_or_further_details': feedback_or_further_details,
-            #     'affiliation': affiliation,
-            # }
-            # content = template.render(context)
-            #
-            # email = EmailMessage(
-            #     "New stuff was just sent",
-            #     content,
-            #     "Your website" + '',
-            #     ['maisha_idris@urmc.rochester.edu'],
-            #     headers={'Reply-To': contact_email}
-            # )
-
-            # send_mail(
-            #     'Subject line maihsa',
-            #     'Helloooo',
-            #     'midris2@u.rochester.edu',
-            #     ['maisha627@gmail.com'],
-            #     fail_silently=False,
-            # )
-            # email.send()
-            # return redirect('contact')
+            send_mail(
+                'Issue/Feedback for ' + room_name,
+                content,
+                'midris2@u.rochester.edu',
+                ['maisha627@gmail.com'],
+            )
+            email.send()
+            return redirect('contact')
 
     return render(request, 'ticket.html', context={'room_name': room_name, 'room': room, 'form': form_class, })
 

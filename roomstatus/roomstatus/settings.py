@@ -121,8 +121,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'midris2@u.rochester.edu'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
-EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hwhsonmedia@gmail.com'
+EMAIL_HOST_PASSWORD = 'cellieNahueVo5s'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
