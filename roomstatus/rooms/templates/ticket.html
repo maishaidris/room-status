@@ -1,0 +1,85 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container">
+
+<h1><strong>{{room_name}}</strong></h1>
+
+<h2 class="red-text">If you require immediate assistance, please contact the helpdesk at 275-5000 (x5-7500).</h2>
+
+{% if room_name.status == 'g' %} <p class="large-text">{{room_name}}'s status is <strong id="green-text">green</strong>.  This room is in perfect working order.</p>{%elif room_name.status == 'y' %}<p class="large-text">{{room_name}}'s status is <strong id="yellow-text">yellow</strong>. </p> </p> This room has the following known issues: </p>{% elif room_name.status == 'r' %} <p class="large-text">{{room_name}}'s status is <strong class="red-text">red</strong>. This room is currently unusable.</p>{% endif %}
+
+<p>{{room_name.details}}</p>
+
+<p>If you have a new error to report or would like to provide general feedback, please use the form below:</p>
+
+<form class="" action={% url 'thanks' room_name} method="post">
+{% csrf_token %}
+
+<fieldset>
+  <legend>What kind of an issue are you having?</legend>
+  <ul>
+    <li>
+      <input type="radio" id="audio" name="issue-type" value="audio">
+      <label for="audio">Audio</label>
+    </li>
+    <li>
+      <input type="radio" id="video-presentation" name="issue-type" value="video-presentation">
+      <label for="video-presentation">Video (Presentation)</label>
+    </li>
+    <li>
+      <input type="radio" id="computer" name="issue-type" value="computer>
+      <label for="computer"> Computer</label>
+    </li>
+    <li>
+      <input type="radio" id="video-conferencing" name="issue-type" value="video-conferencing">
+      <label for="video-conferencing">Video (Conferencing)</label>
+    </li>
+    <li>
+      <input type="radio" id="system-controls" name="issue-type" value="system-controls">
+      <label for="system-controls">System Controls</label>
+    </li>
+    <li>
+      <input type="radio" id="feedback" name="issue-type" value="feedback">
+      <label for="feedback">No issue, I only want to leave feedback</label>
+    </li>
+  </ul>
+</fieldset>
+
+<textarea name="additional-details" placeholder="Please enter additional details or your feedback here."></textarea>
+
+<h3>Optional: Submit your name & email, and we will send you room status updates or follow up with you.</h3>
+
+<p>
+<input class="form-control" id="first-name" type="text" name="first-name" maxlength="50" placeholder="First name">
+<input class="form-control" id="last-name" type="text" name="last-name" maxlength="50" placeholder="Last name">
+</p>
+
+<input class="form-control" type="email" id="email" name="email" placeholder="Email address">
+
+<fieldset>
+  <legend>What is your affiliation with the School of Nursing?</legend>
+  <ul>
+    <li>
+      <input type="radio" id="faculty" name="affiliation" value="faculty">
+      <label for="faculty">Faculty</label>
+    </li>
+    <li>
+      <input type="radio" id="staff" name="affiliation" value="staff">
+      <label for="staff">Staff</label>
+    </li>
+    <li>
+      <input type="radio" id="student" name="affiliation" value="student">
+      <label for="student">Student</label>
+    </li>
+    <li>
+      <input type="radio" id="visitor" name="affiliation" value="visitor">
+      <label for="visitor">Visitor</label>
+    </li>
+  </fieldset>
+
+  <input type="submit" value="Submit">
+  </form>
+</div>
+{% endblock content %}
