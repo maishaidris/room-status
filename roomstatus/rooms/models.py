@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 import uuid  # For unique ticket IDs
+from .choices import *
 
 
 class Room(models.Model):
@@ -47,16 +48,8 @@ class Ticket(models.Model):
     # issue_specificity: checklist, JS?
     additional_information_feedback = models.TextField(null=True, blank=True)
 
-    AFFILIATION_STATUS = (
-        ('f', 'Faculty'),
-        ('t', 'staff'),
-        ('s', 'Student'),
-        ('v', 'Visitor'),
-        ('o', 'Other'),
-    )
-
-    affiliation = models.CharField(max_length=1, choices=AFFILIATION_STATUS,
-                                   default='f', help_text='Affiliation with the SON', null=True, blank=True)
+    affiliation = models.CharField(max_length=15, choices=AFFILIATION_CHOICES,
+                                   default=FACULTY, help_text='Affiliation with the SON', null=True, blank=True)
     first_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField(null=True, blank=True)

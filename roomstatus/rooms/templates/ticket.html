@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<!--testing out Django's form implementation-->
+
 <div class="container">
 
 <h1><strong>{{room_name}}</strong></h1>
@@ -19,70 +21,29 @@
 
 <fieldset>
   <legend>What kind of an issue are you having?</legend>
-  <ul>
-    <li>
-      <input type="radio" id="audio" name="issue-type" value="audio">
-      <label for="audio">Audio</label>
-    </li>
-    <li>
-      <input type="radio" id="video-presentation" name="issue-type" value="video-presentation">
-      <label for="video-presentation">Video (Presentation)</label>
-    </li>
-    <li>
-      <input type="radio" id="computer" name="issue-type" value="computer>
-      <label for="computer"> Computer</label>
-    </li>
-    <li>
-      <input type="radio" id="video-conferencing" name="issue-type" value="video-conferencing">
-      <label for="video-conferencing">Video (Conferencing)</label>
-    </li>
-    <li>
-      <input type="radio" id="system-controls" name="issue-type" value="system-controls">
-      <label for="system-controls">System Controls</label>
-    </li>
-    <li>
-      <input type="radio" id="feedback" name="issue-type" value="feedback">
-      <label for="feedback">No issue, I only want to leave feedback</label>
-    </li>
-  </ul>
+  {{form.type_of_issue}}
 </fieldset>
 
-<textarea class="form-control" rows="5" name="additional-details" placeholder="Please enter additional details or your feedback here."></textarea>
+{{form.feedback_or_further_details}}
 
 <h3>Optional: Submit your name & email, and we will send you room status updates or follow up with you.</h3>
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input class="form-control" id="first-name" type="text" name="first-name" maxlength="50" placeholder="First name">
+      {{form.first_name}}
     </div>
     <div class="form-group col-md-6">
-      <input class="form-control" id="last-name" type="text" name="last-name" maxlength="50" placeholder="Last name">
+      {{form.last_name}}
     </div>
   </div>
 
   <div class="form-group">
-    <input class="form-control" type="email" id="email" name="email" placeholder="Email address">
+    {{form.email_address}}
   </div>
 
 <fieldset>
   <legend>What is your affiliation with the School of Nursing?</legend>
-  <ul>
-    <li>
-      <input type="radio" id="faculty" name="affiliation" value="faculty">
-      <label for="faculty">Faculty</label>
-    </li>
-    <li>
-      <input type="radio" id="staff" name="affiliation" value="staff">
-      <label for="staff">Staff</label>
-    </li>
-    <li>
-      <input type="radio" id="student" name="affiliation" value="student">
-      <label for="student">Student</label>
-    </li>
-    <li>
-      <input type="radio" id="visitor" name="affiliation" value="visitor">
-      <label for="visitor">Visitor</label>
-    </li>
+  {{form.affiliation}}
   </fieldset>
 
   <input type="submit" value="Submit">
