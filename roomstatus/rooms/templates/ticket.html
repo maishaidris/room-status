@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<!--testing out Django's form implementation-->
-
 <div class="container">
 
 <h1><strong>{{room_name}}</strong></h1>
@@ -14,7 +12,7 @@
 
 <p class="large-text" id="break">{{room_name.details}}</p>
 
-<form id="ticket-border" class="" action={% url 'thanks' room_name} method="post">
+<form id="ticket-border" class="" method="post">
 {% csrf_token %}
 
 <h2><strong>Report a New Issue/Feedback</strong></h2>

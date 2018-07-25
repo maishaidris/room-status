@@ -1,0 +1,20 @@
+Room Number:
+{{room_name}}
+
+Type of issue:
+{{type_of_issue}}
+
+Further Details/Feedback:
+{{feedback_or_further_details}}
+
+First Name:
+{{ first_name }}
+
+Last Name:
+{{ last_name }}
+
+{{first_name}}'s email address:
+{{email_address}}
+
+{{first_name}}'s affiliation with SON:
+{{affiliation}}
