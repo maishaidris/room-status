@@ -6,16 +6,16 @@
 
 <h1><strong>{{room_name}}</strong></h1>
 
-<h2 class="red-text">If you require immediate assistance, please contact the helpdesk at 275-5000 (x5-7500).</h2>
+<p class="red-text center large-text small-padding">If you require immediate assistance, please contact the helpdesk at 275-5000 (x5-7500).</p>
 
-{% if room_name.status == 'g' %} <p class="large-text">{{room_name}}'s status is <strong id="green-text">green</strong>.  This room is in perfect working order.</p>{%elif room_name.status == 'y' %}<p class="large-text">{{room_name}}'s status is <strong id="yellow-text">yellow</strong>. </p> </p> This room has the following known issues: </p>{% elif room_name.status == 'r' %} <p class="large-text">{{room_name}}'s status is <strong class="red-text">red</strong>. This room is currently unusable.</p>{% endif %}
+{% if room_name.status == 'g' %} <p class="large-text">{{room_name}}'s status is <strong id="green-text">green</strong>.  This room is in perfect working order.</p>{%elif room_name.status == 'y' %}<p class="large-text">{{room_name}}'s status is <strong id="yellow-text">yellow</strong>. This room has the following known issues: </p>{% elif room_name.status == 'r' %} <p class="large-text">{{room_name}}'s status is <strong class="red-text">red</strong>. This room is currently unusable.</p>{% endif %}
 
-<p>{{room_name.details}}</p>
+<p class="large-text" id="break">{{room_name.details}}</p>
 
-<p>If you have a new error to report or would like to provide general feedback, please use the form below:</p>
-
-<form class="" action={% url 'thanks' room_name} method="post">
+<form id="ticket-border" class="" action={% url 'thanks' room_name} method="post">
 {% csrf_token %}
+
+<h2><strong>Report a New Issue/Feedback</strong></h2>
 
 <fieldset>
   <legend>What kind of an issue are you having?</legend>
@@ -60,7 +60,9 @@
     </div>
   </div>
 
-  <input class="form-control" type="email" id="email" name="email" placeholder="Email address">
+  <div class="form-group">
+    <input class="form-control" type="email" id="email" name="email" placeholder="Email address">
+  </div>
 
 <fieldset>
   <legend>What is your affiliation with the School of Nursing?</legend>
