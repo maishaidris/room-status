@@ -36,12 +36,12 @@ def ticket(request, room_name):
             subject = "Issue with " + type_of_issue + " at Room " + str_room_name
 
             message = "From " + first_name + " " + last_name + \
-                " (" + affiliation + "), " + email_address + \
+                " (" + affiliation + "), " + \
                 ": " + feedback_or_further_details
 
             try:
-                send_mail(subject, message, 'hwhsonmedia@gmail.com', [
-                          'hwhsonmedia@gmail.com', email_address], fail_silently=False)
+                send_mail(subject, message, email_address, [
+                          'son_helpmedia@urmc.rochester.edu', email_address], fail_silently=False)
 
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
