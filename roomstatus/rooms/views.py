@@ -7,6 +7,7 @@ from django.urls import reverse
 from .forms import TicketForm
 from django.core.mail import EmailMessage, send_mail, BadHeaderError
 from django.template.loader import get_template
+from django.contrib import messages
 
 
 def ticket(request, room_name):
@@ -36,17 +37,17 @@ def ticket(request, room_name):
             subject = "Issue with " + type_of_issue + " at Room " + str_room_name
 
             message = "From " + first_name + " " + last_name + \
-                " (" + affiliation + "), " + \
+                " (" + affiliation + ")" + \
                 ": " + feedback_or_further_details
 
             try:
                 send_mail(subject, message, email_address, [
-                          'son_helpmedia@urmc.rochester.edu', email_address], fail_silently=False)
+                    'son_helpmedia@urmc.rochester.edu', email_address], fail_silently=False)
 
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
 
-            return HttpResponseRedirect('/rooms/')
+            return redirect(request.META['HTTP_REFERER'])
 
     return render(request, 'ticket.html', context={'room_name': room_name, 'room': room, 'form': form_class, })
 
